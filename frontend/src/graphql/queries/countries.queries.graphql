@@ -1,0 +1,26 @@
+query ListCountries {
+  countries {
+    name
+    emoji
+    code
+  }
+}
+
+query Country($code: String!) {
+  country(code: $code) {
+    name
+    emoji
+    continent {
+      name
+    }
+    code
+    id
+  }
+}
+
+query ListContinents {
+  continents {
+    name
+    id
+  }
+}

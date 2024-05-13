@@ -1,0 +1,31 @@
+{
+  "clientRemote": "",
+  "gitRemote": "",
+  "gitSha": "",
+  "treeEntries": [
+    {
+      "label": "",
+      "entryType": 1,
+      "author": "olive",
+      "locations": [
+        {
+          "path": "frontend/src/pages/index.tsx",
+          "startLine": 80,
+          "endLine": 80,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    }
+  ],
+  "auditedFiles": [],
+  "resolvedEntries": []
+}
