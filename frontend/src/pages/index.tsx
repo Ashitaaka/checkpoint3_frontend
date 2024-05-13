@@ -7,9 +7,12 @@ import {
   useListContinentsQuery,
   useListCountriesQuery,
 } from "@/graphql/generated/schema";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const index = () => {
+  const router = useRouter();
   const initialState = {
     name: "",
     code: "",
@@ -32,6 +35,7 @@ const index = () => {
 
   const [addCountry, { error: addCountryError }] = useAddCountryMutation({
     refetchQueries: [{ query: ListCountriesDocument }],
+    onError: (err) => console.log(err),
   });
 
   if (listCountriesLoading || listContinentsLoading)
@@ -50,8 +54,14 @@ const index = () => {
 
   if (addCountryError)
     return (
-      <div className="text-xl flex justify-center items-center">
+      <div className="text-xl flex flex-col gap-4 justify-center items-center">
         <p>Erreur lors de la création du pays : {addCountryError?.message}</p>
+        <div
+          className="py-1 px-3 bg-pink-600 rounded-sm text-white cursor-pointer"
+          onClick={() => router.reload()}
+        >
+          Retour
+        </div>
       </div>
     );
 
