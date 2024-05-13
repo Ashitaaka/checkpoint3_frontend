@@ -1,4 +1,5 @@
 "use client";
+import CountryCard from "@/components/CountryCard";
 import {
   ListCountriesDocument,
   NewCountryInput,
@@ -6,7 +7,6 @@ import {
   useListContinentsQuery,
   useListCountriesQuery,
 } from "@/graphql/generated/schema";
-import Link from "next/link";
 import React, { useState } from "react";
 
 const index = () => {
@@ -165,14 +165,7 @@ const index = () => {
           <div className="flex w-full justify-center flex-wrap gap-4">
             {listCountries &&
               listCountries.countries.map((country) => (
-                <Link
-                  href={`country/${country.code}`}
-                  className="country_card flex flex-col items-center border border-1 rounded-md p-4 w-36"
-                  key={country.name}
-                >
-                  <h3 className="font-normal">{country.name}</h3>
-                  <p className="text-2xl">{country.emoji}</p>
-                </Link>
+                <CountryCard key={country.code} {...country} />
               ))}
           </div>
         </section>

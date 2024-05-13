@@ -1,10 +1,7 @@
-import {
-  useCountryLazyQuery,
-  useCountryQuery,
-} from "@/graphql/generated/schema";
+import React from "react";
+import { useCountryQuery } from "@/graphql/generated/schema";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
 
 const countryDetails = () => {
   const router = useRouter();
